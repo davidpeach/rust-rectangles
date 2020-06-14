@@ -1,13 +1,21 @@
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
 fn main() {
-    let width = 31;
-    let height = 50;
+    let rectangle = Rectangle {
+        width: 30,
+        height: 50,
+    };
 
     println!(
         "The are of this rectangle is {} square pixels.", 
-        area(width, height)
+        area(&rectangle)
     );
 }
 
-fn area(width: u32, height: u32) -> u32 {
-    width * height
+// & is an Immutable Borrow (main keeps ownership of rectangle)
+fn area(rectangle: &Rectangle) -> u32 {
+    rectangle.width * rectangle.height
 }
